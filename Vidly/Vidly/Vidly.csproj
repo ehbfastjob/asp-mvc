@@ -187,6 +187,18 @@
     <Compile Include="Migrations\201605301629118_AddMembershipType.Designer.cs">
       <DependentUpon>201605301629118_AddMembershipType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605301633199_PopulateMemberShipTypes.cs" />
+    <Compile Include="Migrations\201605301633199_PopulateMemberShipTypes.Designer.cs">
+      <DependentUpon>201605301633199_PopulateMemberShipTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605301645288_ApplyAnnotationToCustomerName.cs" />
+    <Compile Include="Migrations\201605301645288_ApplyAnnotationToCustomerName.Designer.cs">
+      <DependentUpon>201605301645288_ApplyAnnotationToCustomerName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605301754312_ColumnNameAdd.cs" />
+    <Compile Include="Migrations\201605301754312_ColumnNameAdd.Designer.cs">
+      <DependentUpon>201605301754312_ColumnNameAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -255,10 +267,10 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
+    <None Include="Views\Customers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Customers\" />
     <Folder Include="Views\Movies\" />
   </ItemGroup>
   <ItemGroup>
@@ -278,6 +290,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605301629118_AddMembershipType.resx">
       <DependentUpon>201605301629118_AddMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605301633199_PopulateMemberShipTypes.resx">
+      <DependentUpon>201605301633199_PopulateMemberShipTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605301645288_ApplyAnnotationToCustomerName.resx">
+      <DependentUpon>201605301645288_ApplyAnnotationToCustomerName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605301754312_ColumnNameAdd.resx">
+      <DependentUpon>201605301754312_ColumnNameAdd.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

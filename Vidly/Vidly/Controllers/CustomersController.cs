@@ -45,7 +45,7 @@ namespace Vidly.Controllers
         public ActionResult NewCustomer()
         {
             var memebershipTypes = _context.MembershipTypes.ToList();
-            var viewModel = new NewCustomerViewModel
+            var viewModel = new CustomerFomrViewModel
             {
                 MembershipTypes = memebershipTypes
             };
@@ -53,12 +53,48 @@ namespace Vidly.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Customer customer)
+        public ActionResult Save(Customer customer)
         {
-            _context.Customers.Add(customer);
+          /*  if (!ModelState.IsValid)
+            {
+                var viewModel = new CustomerFomrViewModel
+                {
+                    Customer = customer,
+                    MembershipTypes = _context.MembershipTypes.ToList()   
+                }
+                ;
+                return View("NewCustomer", viewModel);
+            }*/
+            if (customer.Id == 0)
+            {
+                _context.Customers.Add(customer);
+            }
+            else
+            {
+                var customerIndb = _context.Customers.Single(c => c.Id == customer.Id);
+                customerIndb.Name = customer.Name;
+                customerIndb.Birthday = customer.Birthday;
+                customerIndb.MembershipTypeId = customer.MembershipTypeId;
+                customerIndb.IsSubscribedToNewsLetter = customer.IsSubscribedToNewsLetter;
+            }
+            
             _context.SaveChanges();
             return RedirectToAction("Index","Customers");
         }
-        
+
+        public ActionResult Edit(int id)
+        {
+            var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
+            if (customer == null)
+            {
+                return HttpNotFound();
+            }
+            var viewModel = new CustomerFomrViewModel
+            {
+                Customer = customer,
+                MembershipTypes = _context.MembershipTypes.ToList()
+            };
+            return View("NewCustomer", viewModel);
+        }
     }
 }
